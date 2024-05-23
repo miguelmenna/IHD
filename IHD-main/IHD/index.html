@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Água Potável - Informações e Análises</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Água Potável - Informações e Análises</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#analise">Análise da Água</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="sobre">
+            <h2>Sobre a Água Potável</h2>
+            <p>Água potável é um recurso vital para a vida humana, e sua qualidade é essencial para a saúde pública.</p>
+            <p>Desenvolvemos um site para analisar o pH da água potável porque é uma maneira prática e acessível de permitir que as pessoas verifiquem a qualidade da água que consomem.</p>
+            <img src="oque-e-agua-potavel.jpg" alt="Um copo de água potável sendo despejado">
+        </section>
+        
+        <section id="analise">
+            <h2>Análise da Qualidade da Água</h2>
+            <p>O pH, que mede o grau de acidez ou alcalinidade da água, é um indicador crítico dessa qualidade. Um pH equilibrado na água potável é importante para evitar problemas de saúde e corrosão em tubulações, além de garantir a eficácia de processos como a cloração. Teste aqui se o pH de sua água está bom ou ruim.</p>
+            <!-- Formulário de análise de água -->
+            <form id="form-analise" aria-labelledby="analise">
+                <label for="ph">pH da Água:</label>
+                <input type="number" id="ph" name="ph" min="0" max="14" step="0.1" placeholder="Ex: 7.0" required aria-required="true">
+                <span id="error-ph" class="error-message" role="alert"></span>
+                <span id="good-ph" class="good-message" role="alert"></span>
+                <div class="button-group"> <!-- Novo container para os botões -->
+                    <button type="submit">Analisar</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <span id="success-message" class="success-message" role="alert"></span>
+            </form>
+        </section>
+        
+        <script>
+            document.getElementById('form-analise').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                var phValue = parseFloat(document.getElementById('ph').value);
+                var phInput = document.getElementById('ph');
+                var errorMessage = document.getElementById('error-ph');
+                var goodPhMessage = document.getElementById('good-ph');
+                var successMessage = document.getElementById('success-message');
+                
+                if (phValue >= 7) {
+                    phInput.classList.add('ph-high');
+                    goodPhMessage.textContent = "O pH está bom!";
+                    errorMessage.textContent = "";
+                } else if (phValue >= 0 && phValue < 7) {
+                    phInput.classList.add('ph-low');
+                    goodPhMessage.textContent = "";
+                    errorMessage.textContent = "O pH está baixo!";
+                } else {
+                    errorMessage.textContent = "Valor inválido! Insira um número entre 0 e 14.";
+                    goodPhMessage.textContent = "";
+                }
+                
+                successMessage.textContent = "Análise concluída com sucesso!";
+            });
+        </script>
+        
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Tem perguntas ou sugestões? Entre em contato conosco através do formulário abaixo.</p>
+            <!-- Formulário de contato -->
+            <form id="form-contato" aria-labelledby="contato">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required aria-required="true">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Ex: exemplo@email.com" required aria-required="true">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required aria-required="true"></textarea>
+                <div class="button-group"> <!-- Novo container para os botões -->
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <span id="contato-success-message" class="success-message" role="alert"></span>
+            </form>
+        </section>
+
+        <script>
+            document.getElementById('form-contato').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Adicione aqui as validações e o feedback do formulário de contato
+                
+                var successMessage = document.getElementById('contato-success-message');
+                successMessage.textContent = "Mensagem enviada com sucesso!";
+            });
+        </script>
+    </main>
+    <footer>
+        <p>© 2024 Água Potável</p>
+    </footer>
+</body>
+</html>
+
+
