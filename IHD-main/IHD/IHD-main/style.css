@@ -1,0 +1,216 @@
+:root {
+    --cor-primaria: #005792;
+    --cor-secundaria: #ffffff;
+    --cor-fundo: #e7eff6;
+    --cor-destaque: #cf9f3e;
+    --cor-erro: #ff1e56;
+    --cor-sucesso: #28a745;
+    --fonte-primaria: 'Segoe UI', sans-serif;
+    --fonte-secundaria: 'Georgia', serif;
+    --tamanho-fonte-base: 16px;
+    --altura-linha: 1.6;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
+    font-family: var(--fonte-primaria);
+    font-size: var(--tamanho-fonte-base);
+    color: var(--cor-primaria);
+    background-color: var(--cor-fundo);
+    line-height: var(--altura-linha);
+    padding: 1rem;
+    background-image: url('agback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+/* Container principal para centralizar o conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header, nav, main, footer {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Navegação */
+nav {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+    text-align: center;
+}
+
+nav a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav a:focus, nav a:hover {
+    text-decoration: underline;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+img {
+    padding: 40px 0;
+    max-width: 95%;
+    height: auto;
+}
+
+p {
+    font-size: 1.125rem;
+    padding: 0 0 20px 0;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid var(--cor-destaque);
+}
+
+button {
+    background-color: var(--cor-destaque);
+    color: var(--cor-secundaria);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+button:hover, button:focus {
+    background-color: var(--cor-primaria);
+    outline: 2px solid var(--cor-destaque);
+}
+
+/* Mensagens de erro */
+.error-message {
+    color: var(--cor-erro);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Mensagens de sucesso */
+.success-message {
+    color: var(--cor-sucesso);
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.good-message {
+    color: var(--cor-sucesso);
+}
+
+.ph-high {
+    border: 2px solid var(--cor-sucesso);
+}
+
+.ph-low {
+    border: 2px solid var(--cor-erro);
+}
+
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+}
