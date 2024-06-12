@@ -28,11 +28,11 @@
         <section id="analise">
             <h2>Análise da Qualidade da Água</h2>
             <p>O pH, que mede o grau de acidez ou alcalinidade da água, é um indicador crítico dessa qualidade. Um pH equilibrado na água potável é importante para evitar problemas de saúde e corrosão em tubulações, além de garantir a eficácia de processos como a cloração.</p>
-            <p>Você pode testar o PH da sua água atravez de uma maquina ou um quimico: </p>
-            <img src="testeq.webp" alt="testador quimico">
-            <img src="testeE.webp" alt="Testadoe eletronico">
-            <p>Testadores eletronicos ou "medidores de PH digitais" podem custar entre 25 reais e 300 reais enquanto os quimicos como o papel medidor pode custar de 5 reais até 200 reais</p>
-            <p></p>
+            <p>Você pode testar o PH da sua água através de uma máquina ou um químico:</p>
+            <img src="testeq.webp" alt="testador químico">
+            <img src="testeE.webp" alt="Testador eletrônico">
+            <p>Testadores eletrônicos ou "medidores de PH digitais" podem custar entre 25 reais e 300 reais enquanto os químicos como o papel medidor podem custar de 5 reais até 200 reais.</p>
+            <p>Para mais informações sobre como testar o pH da água, <a href="https://www.youtube.com/watch?v=3Gl1tZKbWFw" target="_blank">assista o video</a>.</p>
             <p>Teste aqui se o pH de sua água está bom ou ruim.</p>
             <!-- Formulário de análise de água -->
             <form id="form-analise" aria-labelledby="analise">
@@ -40,12 +40,13 @@
                 <input type="number" id="ph" name="ph" min="0" max="14" step="0.1" placeholder="Ex: 7.0" required aria-required="true">
                 <span id="error-ph" class="error-message" role="alert"></span>
                 <span id="good-ph" class="good-message" role="alert"></span>
-                <div class="button-group"> <!-- Novo container para os botões -->
+                <div class="button-group">
                     <button type="submit">Analisar</button>
                     <button type="reset">Reset</button>
                 </div>
                 <span id="success-message" class="success-message" role="alert"></span>
             </form>
+           
         </section>
         
         <script>
@@ -58,22 +59,47 @@
                 var goodPhMessage = document.getElementById('good-ph');
                 var successMessage = document.getElementById('success-message');
                 
+                // Limpar classes e mensagens anteriores
+                phInput.classList.remove('ph-high', 'ph-low');
+                goodPhMessage.textContent = "";
+                errorMessage.textContent = "";
+                
+                // Verificar o valor do pH
                 if (phValue >= 7) {
                     phInput.classList.add('ph-high');
                     goodPhMessage.textContent = "O pH está bom!";
-                    errorMessage.textContent = "";
                 } else if (phValue >= 0 && phValue < 7) {
                     phInput.classList.add('ph-low');
-                    goodPhMessage.textContent = "";
                     errorMessage.textContent = "O pH está baixo!";
                 } else {
                     errorMessage.textContent = "Valor inválido! Insira um número entre 0 e 14.";
-                    goodPhMessage.textContent = "";
                 }
                 
                 successMessage.textContent = "Análise concluída com sucesso!";
+                
+                // Remover a mensagem de sucesso e classes após 3 segundos
+                setTimeout(function() {
+                    phInput.classList.remove('ph-high', 'ph-low');
+                    successMessage.textContent = "";
+                    goodPhMessage.textContent = "";
+                    errorMessage.textContent = "";
+                }, 3000);
+            });
+        
+            // Limpar mensagens ao resetar o formulário
+            document.getElementById('form-analise').addEventListener('reset', function() {
+                var phInput = document.getElementById('ph');
+                var errorMessage = document.getElementById('error-ph');
+                var goodPhMessage = document.getElementById('good-ph');
+                var successMessage = document.getElementById('success-message');
+        
+                phInput.classList.remove('ph-high', 'ph-low');
+                errorMessage.textContent = "";
+                goodPhMessage.textContent = "";
+                successMessage.textContent = "";
             });
         </script>
+        
         
         <section id="contato">
             <h2>Contato</h2>
@@ -86,14 +112,14 @@
                 <input type="email" id="email" name="email" placeholder="Ex: exemplo@email.com" required aria-required="true">
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required aria-required="true"></textarea>
-                <div class="button-group"> <!-- Novo container para os botões -->
+                <div class="button-group">
                     <button type="submit">Enviar</button>
                     <button type="reset">Reset</button>
                 </div>
                 <span id="contato-success-message" class="success-message" role="alert"></span>
             </form>
         </section>
-
+        
         <script>
             document.getElementById('form-contato').addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -101,14 +127,26 @@
                 // Adicione aqui as validações e o feedback do formulário de contato
                 
                 var successMessage = document.getElementById('contato-success-message');
-                successMessage.textContent = "Mensagem enviada com sucesso!";
+                
+                // Limpar mensagem de sucesso anterior
+                successMessage.textContent = "";
+                
+                // Simular envio de formulário e exibir mensagem de sucesso
+                setTimeout(function() {
+                    successMessage.textContent = "Mensagem enviada com sucesso!";
+                    
+                    // Remover a mensagem de sucesso após 3 segundos
+                    setTimeout(function() {
+                        successMessage.textContent = "";
+                    }, 3000);
+                }, 500); // Simular um pequeno atraso no envio
+            });
+        
+            // Limpar mensagens ao resetar o formulário
+            document.getElementById('form-contato').addEventListener('reset', function() {
+                var successMessage = document.getElementById('contato-success-message');
+                successMessage.textContent = "";
             });
         </script>
-    </main>
-    <footer>
-        <p>© 2024 Água Potável</p>
-    </footer>
-</body>
-</html>
-
-
+        
+        

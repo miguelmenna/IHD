@@ -1,11 +1,10 @@
-/* Variáveis para cores e fontes */
 :root {
     --cor-primaria: #005792;
     --cor-secundaria: #ffffff;
     --cor-fundo: #e7eff6;
     --cor-destaque: #cf9f3e;
     --cor-erro: #ff1e56;
-    --cor-sucesso: #28a745; /* Nova cor para mensagens de sucesso */
+    --cor-sucesso: #28a745;
     --fonte-primaria: 'Segoe UI', sans-serif;
     --fonte-secundaria: 'Georgia', serif;
     --tamanho-fonte-base: 16px;
@@ -26,26 +25,25 @@ body {
     color: var(--cor-primaria);
     background-color: var(--cor-fundo);
     line-height: var(--altura-linha);
-    padding: 1rem; /* Aumentar padding para melhorar a responsividade e o espaçamento */
+    padding: 1rem;
     background-image: url('agback.jpg');
-    background-size: cover; /* Cobre todo o fundo */
-    background-repeat: no-repeat; /* Não repete a imagem */
-    background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar */
-    background-position: center; /* Centraliza a imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     color: #fff;
 }
 
 /* Container principal para centralizar o conteúdo */
 .container {
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza o conteúdo e mantém as margens laterais */
+    margin: 0 auto;
     padding: 20px;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 
-
 header, nav, main, footer {
-    background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para melhorar a legibilidade */
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
@@ -61,7 +59,7 @@ header {
 
 header h1 {
     font-size: 2rem;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 /* Navegação */
@@ -106,9 +104,9 @@ main {
 section {
     margin-bottom: 30px;
     text-align: center;
-    padding: 20px; /* Adicionar padding interno */
-    background: rgba(255, 255, 255, 0.1); /* Leve fundo para contraste */
-    border-radius: 10px; /* Adiciona bordas arredondadas */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }
 
 img {
@@ -184,7 +182,7 @@ button:hover, button:focus {
 .success-message {
     color: var(--cor-sucesso);
     font-size: 1rem;
-    margin-top: 10px; /* Espaçamento acima da mensagem de sucesso */
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
